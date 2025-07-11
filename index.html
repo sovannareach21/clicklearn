@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Watch</title>
+    <style>
+        /* --- ការកំណត់ទូទៅ --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Koulen', sans-serif;
+            background-color: #ffffff; /* ផ្ទៃខាងក្រោយពណ៌ស */
+        }
+
+        /* --- Style សម្រាប់ទំព័រទី១ (Landing Page) --- */
+        #landing-page {
+            width: 100%;
+            height: 100%;
+            display: grid; 
+            place-items: center;
+        }
+
+        #enter-button {
+            max-width: 500px;
+            width: 80vw;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #enter-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Style សម្រាប់ទំព័រទី២ (Video Page) --- */
+        #video-page {
+            display: none; 
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .video-page-title {
+            width: 95%; /* បានកែទំហំ - ធ្វើឲ្យរូបចំណងជើងធំជាងមុន */
+            max-width: 800px; 
+            height: auto;
+            margin-bottom: 20px; 
+        }
+        
+        #main-video {
+            width: 90%; /* បានកែទំហំ - ធ្វើឲ្យវីដេអូតូចជាងមុន */
+            max-width: 450px; 
+            height: auto;
+            border: 2px solid black; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="landing-page">
+        <img id="enter-button" src="images/enter-button.png" alt="ចុចដើម្បីមើល">
+    </div>
+
+    <div id="video-page">
+        <img src="images/title.png" alt="ទម្លាក់ទូរស័ព្ទចុះហើយមើលមេរៀន !!" class="video-page-title">
+        
+        <video id="main-video" loop playsinline controls>
+            <source src="images/CEO.mp4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const landingPage = document.getElementById('landing-page');
+        const videoPage = document.getElementById('video-page');
+        const enterButton = document.getElementById('enter-button');
+        const video = document.getElementById('main-video');
+
+        enterButton.addEventListener('click', function() {
+            landingPage.style.display = 'none';
+            videoPage.style.display = 'flex';
+            video.play();
+        });
+    </script>
+
+</body>
+</html>
